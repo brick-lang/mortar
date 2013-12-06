@@ -1,0 +1,18 @@
+in Mortar
+
+trait<T> Comparable
+    method less_than?(obj:T) -> Bool
+        (self <=> obj) == -1
+    method greater_than?(obj:T) -> Bool
+        (self <=> obj) == 1
+    method equals?(obj:T) -> Bool
+        (self <=> obj) == 0
+    method less_than_or_equals?(obj:T) -> Bool
+        self.less_than?(obj) || self.equals?(obj)
+    method greater_than_or_equals?(obj:T) -> Bool
+        self.greater_than?(obj) || self.equals?(obj)
+    method between?(min:T, max:T) -> Bool
+        if self.less_than?(min)         return false
+        else if self.greater_than?(max) return false
+        else return true
+    method spaceship(obj:T) -> Bool
