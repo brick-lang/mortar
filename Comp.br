@@ -1,6 +1,6 @@
 # 
 #     
-# Comparable.br
+# Comp.br
 # 
 # created at: 2013-12-06T10:54:27.880526-05:00
 # 
@@ -10,26 +10,26 @@
 
 within Mortar
 
-trait<T> Comparable
-    method less_than?(obj:T) -> Bool
+trait Comp<t>
+    method less_than?(obj:t) -> Bool
         (self <=> obj) == -1
 
-    method greater_than?(obj:T) -> Bool
+    method greater_than?(obj:t) -> Bool
         (self <=> obj) == 1
 
-    method equals?(obj:T) -> Bool
+    method equals?(obj:t) -> Bool
         (self <=> obj) == 0
 
-    method less_than_or_equals?(obj:T) -> Bool
+    method less_than_or_equals?(obj:t) -> Bool
         self.less_than?(obj) || self.equals?(obj)
 
-    method greater_than_or_equals?(obj:T) -> Bool
+    method greater_than_or_equals?(obj:t) -> Bool
         self.greater_than?(obj) || self.equals?(obj)
 
-    method between?(min:T, max:T) -> Bool
+    method between?(min:t, max:t) -> Bool
         if self.less_than?(min)         return false
         else if self.greater_than?(max) return false
         else return true
 
-    method spaceship(obj:T) -> Bool
+    method spaceship(obj:t) -> Bool
         return nil
